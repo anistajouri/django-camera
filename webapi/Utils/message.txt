@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "test_cam.py", line 65, in <module>
+    s.login('anis.tajouri','Fitality119')
+  File "/usr/lib/python2.7/smtplib.py", line 622, in login
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (534, '5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbvu\n5.7.14 q4GQqV8TY4xq_X2svmGCpIdv8yKV7xr8VplvYskLM4Y6wmhtU8h-tr3DjUFuYiZIRnL5qX\n5.7.14 VE2Q4fhlB3jR7goPpB8UkSz6PIWTeXlhw-4wsUvuDlqH3sYb3pNNN4fCAbFl1XNWaZnVJh\n5.7.14 nr6zORqNpEazTu6qi_ljM_mwFdQt7XMIYnWVW-iPvTZniU7kUr9yKEXSsQByAneS_UxSsV\n5.7.14 bgkrp5GeagK0Op4DJC4CjL8nLUsTE> Please log in via your web browser and\n5.7.14 then try again.\n5.7.14  Learn more at\n5.7.14  https://support.google.com/mail/answer/78754 m6sm9069868wmb.6 - gsmtp')
