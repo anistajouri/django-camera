@@ -9,7 +9,7 @@ import email
 import email.mime.application
  
 #Import sys to deal with command line arguments
-import sys
+import sys,os
 
 
 import smtplib
@@ -36,16 +36,9 @@ def sendemail(from_addr, to_addr_list, cc_addr_list,
 class MailPictureManager(object):
     @classmethod
     def email_photo(cls):
-
-          sendemail(from_addr    = 'anis.tajouri@gmail.com', 
-                  to_addr_list = ['anis.tajouri@gmail.com'],
-                  cc_addr_list = ['anis.tajouri@sofrecom.com'], 
-                  subject      = 'Howdy', 
-                  message      = 'Howdy from a python function', 
-                  login        = 'AnisTajouri', 
-                  password     = 'Fitality119')
-
-          print("Hello: camera")
+          print("Hello: camera pi")
+          os.system("cd webapi/Utils;python3.4 test_cam.py")
+          
 #         # Create a text/plain message
 #         msg = email.mime.Multipart.MIMEMultipart()
 #         msg['Subject'] = 'Alerte tapis'
