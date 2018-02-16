@@ -1,0 +1,55 @@
+sudo apt-get install libmicrohttpd-dev libjansson-dev libnice-dev \
+libssl-dev libsrtp-dev libsofia-sip-ua-dev libglib2.0-dev \
+libopus-dev libogg-dev libini-config-dev libcollection-dev \
+pkg-config gengetopt automake libtool doxygen graphviz git cmake
+
+To allow for post-processing tools:
+
+sudo apt-get install libavformat-dev
+
+Fetch code:
+
+ git clone git://github.com/meetecho/janus-gateway.git
+
+Then:
+
+cd janus-gateway
+
+in : https://github.com/meetecho/janus-gateway
+
+
+wget https://github.com/cisco/libsrtp/archive/v2.0.0.tar.gz
+tar xfv v2.0.0.tar.gz
+cd libsrtp-2.0.0
+./configure --prefix=/usr --enable-openssl
+make shared_library && sudo make install
+
+
+
+git clone git://git.libwebsockets.org/libwebsockets
+cd libwebsockets
+# If you want the stable version of libwebsockets, uncomment the next line
+# git checkout v2.4-stable
+mkdir build
+cd build
+# See https://github.com/meetecho/janus-gateway/issues/732 re: LWS_MAX_SMP
+cmake -DLWS_MAX_SMP=1 -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_C_FLAGS="-fpic" ..
+make && sudo make install
+
+
+config:
+./configure --prefix=/opt/janus
+
+
+install gstreamer :
+list=$(apt-cache --names-only search ^gstreamer1.0-* | awk '{ print $1 }' | grep -v gstreamer1.0-hybris)
+sudo apt-get install $list
+
+
+execute janus:
+cd /opt/janus/bin/ ; ./janus -F /opt/janus/etc/janus/
+
+
+#sudo cp -r /opt/janus/share/janus/demos/ /usr/share/nginx/www/
+sudo cp -r /opt/janus/share/janus/demos/ /var/www/html/
+sudo service nginx start
