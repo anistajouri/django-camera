@@ -13,7 +13,6 @@ class MailPictureManagement(APIView):
         """
         Get the mail_address
         """
-        print("HHHHHHHHHHHHHHHHHHHHHHHHH")
         MailPictureManager.email_photo()       
 #        content = {'mail_address': MailPictureManager.get_mail_address()}
         content = {'mail_address': 'anis.tajouri@gmail.com'}

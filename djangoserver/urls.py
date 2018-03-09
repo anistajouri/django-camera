@@ -19,6 +19,7 @@ from rest_framework import routers
 
 
 from webapi.views import MailPictureView
+from webapi.views import LightView
 
 router = routers.DefaultRouter()
 
@@ -29,4 +30,6 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     url(r'^mailpicture/?$', MailPictureView.MailPictureManagement.as_view()),
+    url(r'^light_up/?$', LightView.LightUp.as_view()),
+    url(r'^light_down/?$', LightView.LightDown.as_view()),
 ]

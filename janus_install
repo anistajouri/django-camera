@@ -2,7 +2,7 @@ sudo apt-get install libmicrohttpd-dev libjansson-dev libnice-dev \
 libssl-dev libsrtp-dev libsofia-sip-ua-dev libglib2.0-dev \
 libopus-dev libogg-dev libini-config-dev libcollection-dev \
 pkg-config gengetopt automake libtool doxygen graphviz git cmake
-
+exit 0
 To allow for post-processing tools:
 
 sudo apt-get install libavformat-dev
@@ -38,13 +38,8 @@ make && sudo make install
 
 
 config:
-sh autogen.sh
 ./configure --prefix=/opt/janus
 
-build janus:
-make
-make install
-make configs
 
 install gstreamer :
 list=$(apt-cache --names-only search ^gstreamer1.0-* | awk '{ print $1 }' | grep -v gstreamer1.0-hybris)
